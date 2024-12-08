@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include "sprite/sprite.h"
+#include "spriteArray/spriteArray.h"
 
 #define WINDOW_SIZE 800
 #define MAX_PROJECTILES 256
