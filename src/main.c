@@ -64,13 +64,13 @@ int main(void) {
         playerX = lerp(playerX, mx - player.rect.w / 2, 0.01 * delta);
         player.rect.x = playerX;
 
+        SDL_RenderClear(rend);
+
         for(int i = 0; i < projectiles->length; i++) {
             Sprite* proj = &projectiles->data[i];
             proj->rect.y -= 2 * delta;
             Sprite_draw(proj);
         }
-
-        SDL_RenderClear(rend);
 
         Sprite_draw(&player);
         SDL_RenderPresent(rend);
