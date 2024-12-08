@@ -33,6 +33,8 @@ int main(void) {
     player.rect.x = WINDOW_SIZE / 2 - player.rect.w / 2;
     player.rect.y = WINDOW_SIZE - player.rect.h - 50;
 
+    float playerX = (float) player.rect.x;
+
     while (1) {
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT) break;
@@ -40,7 +42,8 @@ int main(void) {
         int mx, my;
         SDL_GetMouseState(&mx, &my);
 
-        player.rect.x = mx - player.rect.w / 2;
+        playerX = lerp(playerX, mx - player.rect.w / 2, 0.01);
+        player.rect.x = playerX;
 
         SDL_RenderClear(rend);
 
