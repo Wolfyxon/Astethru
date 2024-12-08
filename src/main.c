@@ -30,6 +30,11 @@ int main(void) {
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT) break;
 
+        int mx, my;
+        SDL_GetMouseState(&mx, &my);
+
+        player.rect.x = mx - player.rect.w / 2;
+
         SDL_RenderClear(rend);
 
         Sprite_draw(&player);
