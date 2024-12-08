@@ -13,6 +13,10 @@ BIN := $(BUILD)/astethru
 .PHONY: all
 all: ${BIN}
 
+.PHONY: run
+run: $(BIN)
+	$(BIN)
+
 .PHONY: clean
 clean:
 	rm -rf $(BUILD)
