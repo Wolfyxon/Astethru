@@ -7,6 +7,7 @@ SpriteArray* SpriteArray_new(int size) {
     
     if(arr == NULL) {
         fprintf(stderr, "Failed to allocate memory for SpriteArray. Size: %i Memory size: %i \n", size, msize);
+        exit(1);
     }
 
     arr->length = 0;
