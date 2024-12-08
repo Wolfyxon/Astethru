@@ -8,8 +8,14 @@ Sprite Sprite_load(SDL_Renderer* renderer, const char* path) {
         .y = 0,
     };
     
+    SDL_Texture* texture = IMG_LoadTexture(renderer, path);
+
+    if(texture == NULL) {
+        fprintf(stderr, "Failed to load texture %s", path);
+    }
+
     Sprite s = {
-        .texture = IMG_LoadTexture(renderer, path),
+        .texture = texture,
         .renderer = renderer,
         .rect = rect
     };
