@@ -1,0 +1,12 @@
+# IDEs
+.idea/
+
+# Binaries
+build/
+
+*.d
+*.o
+*.so
+*.dll
+*.out
+*.exe
