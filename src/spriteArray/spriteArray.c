@@ -12,3 +12,9 @@ SpriteArray SpriteArray_new(int size) {
 void SpriteArray_push(SpriteArray* array, Sprite value) {
     array->data[array->length++] = value;
 }
+
+void SpriteArray_removeAt(SpriteArray* array, int index) {
+    for(int i = index; i < array->length; i++) {
+        array->data[i] = array->data[i + 1];
+    }
+}
