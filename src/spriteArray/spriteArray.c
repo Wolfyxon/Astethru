@@ -8,3 +8,7 @@ SpriteArray SpriteArray_new(int size) {
 
     return *arr; 
 }
+
+SpriteArray SpriteArray_push(SpriteArray* array, Sprite value) {
+    array->data[array->length++] = value;
+}
