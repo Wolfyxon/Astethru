@@ -10,7 +10,7 @@ OBJECTS := $(SOURCES:$(SRC)/%.c=$(BUILD)/%.o)
 BIN := $(BUILD)/astethru
 
 .PHONY: all
-all: ${BIN}
+all: $(BIN)
 
 .PHONY: run
 run: $(BIN)
