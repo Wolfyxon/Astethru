@@ -25,8 +25,8 @@ int main(void) {
 
     SDL_Event event;
 
-    Sprite* projectiles[MAX_PROJECTILES];
-    Sprite* asteroids[MAX_ASTEROIDS];
+    SpriteArray projectiles = SpriteArray_new(MAX_PROJECTILES);
+    SpriteArray asteroids = SpriteArray_new(MAX_ASTEROIDS);
 
     Sprite player = Sprite_load(rend, "assets/img/ship.png");
     player.rect.w = 80;
