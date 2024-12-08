@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
+#include "sprite/sprite.h"
 
 #define WINDOW_SIZE 800
 
@@ -17,11 +18,17 @@ int main(void) {
 
     SDL_Event event;
 
+    Sprite player = Sprite_load(rend, "assets/img/ship.png");
+    player.rect.x = WINDOW_SIZE / 2 - player.rect.w / 2;
+    player.rect.y = WINDOW_SIZE - player.rect.h - 50;
+
     while (1) {
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT) break;
 
         SDL_RenderClear(rend);
+
+        Sprite_draw(&player);
         SDL_RenderPresent(rend);
     }
 
