@@ -52,12 +52,20 @@ int main(void) {
         if(mouse & SDL_BUTTON_LEFT) {
             if(now > lastFireTime + 500) {
                 lastFireTime = now;
-                puts("TODO: fire");
+                
+                Sprite proj = Sprite_load(rend, "assets/laser.png");
+                SpriteArray_push(&projectiles, proj);
             }
         }
 
         playerX = lerp(playerX, mx - player.rect.w / 2, 0.01 * delta);
         player.rect.x = playerX;
+
+        for(int i = 0; i < projectiles.length; i++) {
+            Sprite* proj = &projectiles.data[i];
+            proj->rect.y -= 2 * delta;
+            Sprite_draw(proj);
+        }
 
         SDL_RenderClear(rend);
 
