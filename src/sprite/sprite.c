@@ -25,6 +25,11 @@ Sprite Sprite_load(SDL_Renderer* renderer, const char* path) {
 }
 
 void Sprite_draw(Sprite* sprite) {
+    if(sprite->renderer == NULL || sprite->texture == NULL) {
+        fprintf(stderr, "Invalid sprite \n");
+        exit(1);
+    }
+
     SDL_RenderCopy(sprite->renderer, sprite->texture, NULL, &sprite->rect);
     sprite->renderCycles++;
 }
