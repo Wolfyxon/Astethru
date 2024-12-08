@@ -1,6 +1,6 @@
 #include "sprite.h"
 
-Sprite loadSprite(SDL_Renderer* renderer, const char* path) {
+Sprite Sprite_load(SDL_Renderer* renderer, const char* path) {
     Sprite s = {
         .x = 0,
         .y = 0,

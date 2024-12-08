@@ -8,4 +8,4 @@ typedef struct {
     SDL_Renderer* renderer;
 } Sprite;
 
-Sprite loadSprite(SDL_Renderer* renderer, const char* path);
+Sprite Sprite_load(SDL_Renderer* renderer, const char* path);
