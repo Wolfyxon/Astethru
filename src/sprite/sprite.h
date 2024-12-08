@@ -1,3 +1,6 @@
+#ifndef SPRITE_H
+#define SPRITE_H
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
@@ -9,3 +12,5 @@ typedef struct {
 
 Sprite Sprite_load(SDL_Renderer* renderer, const char* path);
 void Sprite_draw(Sprite* sprite);
+
+#endif
