@@ -33,7 +33,7 @@ int main(void) {
     player.rect.x = WINDOW_SIZE / 2 - player.rect.w / 2;
     player.rect.y = WINDOW_SIZE - player.rect.h - 50;
 
-    float playerX = (float) player.rect.x;
+    float playerX = player.rect.x;
     float lastTime = SDL_GetTicks();
     float lastFireTime = 0;
 
