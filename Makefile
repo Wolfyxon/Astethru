@@ -23,6 +23,7 @@ clean:
 $(BUILD):
 	mkdir -p $(BUILD)
 	mkdir -p $(BUILD)/sprite
+	mkdir -p $(BUILD)/spriteArray
 
 $(BIN): $(OBJECTS) | $(BUILD)
 	$(CC) $(OBJECTS) -o $@ $(CFLAGS)
