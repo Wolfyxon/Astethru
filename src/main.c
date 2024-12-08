@@ -35,16 +35,25 @@ int main(void) {
 
     float playerX = (float) player.rect.x;
     float lastTime = SDL_GetTicks();
+    float lastFireTime = 0;
 
     while (1) {
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT) break;
 
-        float delta = (SDL_GetTicks() - lastTime);
-        lastTime = SDL_GetTicks();
+        float now = SDL_GetTicks();
+        float delta = (now - lastTime);
+        lastTime = now;
 
         int mx, my;
-        SDL_GetMouseState(&mx, &my);
+        Uint32 mouse = SDL_GetMouseState(&mx, &my);
+
+        if(mouse & SDL_BUTTON_LEFT) {
+            if(now > lastFireTime + 500) {
+                lastFireTime = now;
+                puts("TODO: fire");
+            }
+        }
 
         playerX = lerp(playerX, mx - player.rect.w / 2, 0.01 * delta);
         player.rect.x = playerX;
