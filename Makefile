@@ -6,7 +6,7 @@ CFLAGS := `sdl2-config --libs --cflags` -Wall -lSDL2_image -lm
 
 SOURCES := $(SRC)/main.c $(SRC)/sprite/sprite.c
 
-OBJECTS := $(SOURCES:.c=.o)
+OBJECTS := $(SOURCES:$(SRC)/%.c=$(BUILD)/%.o)
 BIN := $(BUILD)/astethru
 
 .PHONY: all
@@ -21,11 +21,11 @@ clean:
 	rm -rf $(BUILD)
 
 $(BUILD):
-	mkdir $(BUILD)
+	mkdir -p $(BUILD)
+	mkdir -p $(BUILD)/sprite
 
-$(BIN): $(OBJECTS)
-	$(CC) $(BUILD)$(OBJECTS) -o $@ $(CFLAGS)
+$(BIN): $(OBJECTS) | $(BUILD)
+	$(CC) $(OBJECTS) -o $@ $(CFLAGS)
 
-$(OBJECTS): $(@:.o=.c) $(BUILD)
-	$(CC) $(SRC)$(@:.o=.c) -o $(BUILD)$@ -c $(CFLAGS)
-
+$(BUILD)/%.o: $(SRC)/%.c | $(BUILD)
+	$(CC) -c $< -o $@ $(CFLAGS)
