@@ -54,6 +54,9 @@ int main(void) {
                 lastFireTime = now;
                 
                 Sprite proj = Sprite_load(rend, "assets/img/laser.png");
+                proj.rect.x = player.rect.x;
+                proj.rect.y = player.rect.y;
+
                 SpriteArray_push(projectiles, proj);
             }
         }
