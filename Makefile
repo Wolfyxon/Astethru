@@ -5,7 +5,6 @@ CC := gcc
 CFLAGS := `sdl2-config --libs --cflags` -Wall -lSDL2_image -lm
 
 SOURCES := $(src)/main.c
-HEADERS := 
 
 OBJECTS := $(SOURCES:.c=.o)
 BIN := $(BUILD)/astethru
