@@ -11,6 +11,16 @@ float lerp(float start, float end, float speed) {
     return (1.0 - speed) * start + speed * end;
 }
 
+Sprite createProjectile(SDL_Renderer* renderer, Sprite* player) {
+    Sprite proj = Sprite_load(renderer, "assets/img/laser.png");
+
+    proj.rect.x = player->rect.x + player->rect.w / 2;
+    proj.rect.y = player->rect.y;
+    proj.rect.w = 2;
+
+    return proj;
+}
+
 int main(void) {
     SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -53,11 +63,16 @@ int main(void) {
             if(now > lastFireTime + 500) {
                 lastFireTime = now;
                 
-                Sprite proj = Sprite_load(rend, "assets/img/laser.png");
-                proj.rect.x = player.rect.x;
-                proj.rect.y = player.rect.y;
+                float offset = 32;
 
-                SpriteArray_push(projectiles, proj);
+                Sprite left = createProjectile(rend, &player);
+                left.rect.x -= offset;
+                
+                Sprite right = createProjectile(rend, &player);
+                right.rect.x += offset;
+
+                SpriteArray_push(projectiles, left);
+                SpriteArray_push(projectiles, right);
             }
         }
 
