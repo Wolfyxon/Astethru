@@ -2,10 +2,9 @@
 #include <SDL2/SDL_image.h>
 
 typedef struct {
-    float x;
-    float y;
     SDL_Texture* texture;
     SDL_Renderer* renderer;
+    SDL_Rect rect;
 } Sprite;
 
 Sprite Sprite_load(SDL_Renderer* renderer, const char* path);
