@@ -4,6 +4,10 @@
 
 #define WINDOW_SIZE 800
 
+float lerp(float start, float end, float speed) {
+    return (1.0 - speed) * start + speed * end;
+}
+
 int main(void) {
     SDL_Init(SDL_INIT_EVERYTHING);
 
