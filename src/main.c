@@ -3,6 +3,8 @@
 #include "sprite/sprite.h"
 
 #define WINDOW_SIZE 800
+#define MAX_PROJECTILES 256
+#define MAX_ASTEROIDS 128
 
 float lerp(float start, float end, float speed) {
     return (1.0 - speed) * start + speed * end;
@@ -21,6 +23,9 @@ int main(void) {
     SDL_Renderer* rend = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     SDL_Event event;
+
+    Sprite* projectiles[MAX_PROJECTILES];
+    Sprite* asteroids[MAX_ASTEROIDS];
 
     Sprite player = Sprite_load(rend, "assets/img/ship.png");
     player.rect.w = 80;
