@@ -1,12 +1,12 @@
 #include "spriteArray.h"
 
-SpriteArray SpriteArray_new(int size) {
-    SpriteArray* arr = malloc(sizeof(arr) + sizeof(Sprite) * size);
+SpriteArray* SpriteArray_new(int size) {
+    SpriteArray* arr = malloc(sizeof(SpriteArray) + sizeof(Sprite) * size);
     
     arr->length = 0;
     arr->maxLength = size;
 
-    return *arr; 
+    return arr; 
 }
 
 void SpriteArray_push(SpriteArray* array, Sprite value) {

@@ -25,8 +25,8 @@ int main(void) {
 
     SDL_Event event;
 
-    SpriteArray projectiles = SpriteArray_new(MAX_PROJECTILES);
-    SpriteArray asteroids = SpriteArray_new(MAX_ASTEROIDS);
+    SpriteArray* projectiles = SpriteArray_new(MAX_PROJECTILES);
+    SpriteArray* asteroids = SpriteArray_new(MAX_ASTEROIDS);
 
     Sprite player = Sprite_load(rend, "assets/img/ship.png");
     player.rect.w = 80;
@@ -54,15 +54,15 @@ int main(void) {
                 lastFireTime = now;
                 
                 Sprite proj = Sprite_load(rend, "assets/laser.png");
-                SpriteArray_push(&projectiles, proj);
+                SpriteArray_push(projectiles, proj);
             }
         }
 
         playerX = lerp(playerX, mx - player.rect.w / 2, 0.01 * delta);
         player.rect.x = playerX;
 
-        for(int i = 0; i < projectiles.length; i++) {
-            Sprite* proj = &projectiles.data[i];
+        for(int i = 0; i < projectiles->length; i++) {
+            Sprite* proj = &projectiles->data[i];
             proj->rect.y -= 2 * delta;
             Sprite_draw(proj);
         }
