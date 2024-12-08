@@ -53,7 +53,7 @@ int main(void) {
             if(now > lastFireTime + 500) {
                 lastFireTime = now;
                 
-                Sprite proj = Sprite_load(rend, "assets/laser.png");
+                Sprite proj = Sprite_load(rend, "assets/img/laser.png");
                 SpriteArray_push(projectiles, proj);
             }
         }
