@@ -1,4 +1,4 @@
-#include <sprite.h>
+#include "sprite.h"
 
 Sprite loadSprite(SDL_Renderer* renderer, const char* path) {
     Sprite s = {
