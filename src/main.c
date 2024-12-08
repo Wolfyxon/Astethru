@@ -60,7 +60,7 @@ int main(void) {
         Uint32 mouse = SDL_GetMouseState(&mx, &my);
 
         if(mouse & SDL_BUTTON_LEFT) {
-            if(now > lastFireTime + 500) {
+            if(now > lastFireTime + 300) {
                 lastFireTime = now;
                 
                 float offset = 32;
