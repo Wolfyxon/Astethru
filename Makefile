@@ -4,7 +4,7 @@ BUILD := build
 CC := gcc
 CFLAGS := `sdl2-config --libs --cflags` -Wall -lSDL2_image -lm
 
-SOURCES := $(src)/main.c $(src)/sprite/sprite.c
+SOURCES := $(SRC)/main.c $(SRC)/sprite/sprite.c
 
 OBJECTS := $(SOURCES:.c=.o)
 BIN := $(BUILD)/astethru
