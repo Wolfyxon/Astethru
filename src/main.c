@@ -12,6 +12,9 @@ int main(void) {
     while (1) {    
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT) break;
+
+        SDL_RenderClear(rend);
+        SDL_RenderPresent(rend);
     }
 
     SDL_hid_exit();
