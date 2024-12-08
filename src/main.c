@@ -34,15 +34,19 @@ int main(void) {
     player.rect.y = WINDOW_SIZE - player.rect.h - 50;
 
     float playerX = (float) player.rect.x;
+    float lastTime = SDL_GetTicks();
 
     while (1) {
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT) break;
 
+        float delta = (SDL_GetTicks() - lastTime);
+        lastTime = SDL_GetTicks();
+
         int mx, my;
         SDL_GetMouseState(&mx, &my);
 
-        playerX = lerp(playerX, mx - player.rect.w / 2, 0.01);
+        playerX = lerp(playerX, mx - player.rect.w / 2, 0.01 * delta);
         player.rect.x = playerX;
 
         SDL_RenderClear(rend);
