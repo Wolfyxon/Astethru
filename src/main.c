@@ -23,6 +23,8 @@ int main(void) {
     SDL_Event event;
 
     Sprite player = Sprite_load(rend, "assets/img/ship.png");
+    player.rect.w = 80;
+    player.rect.h = 80;
     player.rect.x = WINDOW_SIZE / 2 - player.rect.w / 2;
     player.rect.y = WINDOW_SIZE - player.rect.h - 50;
 
