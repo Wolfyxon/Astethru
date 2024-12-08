@@ -11,7 +11,7 @@ int main(void) {
 
     SDL_Event event;
 
-    while (1) {    
+    while (1) {
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT) break;
 
