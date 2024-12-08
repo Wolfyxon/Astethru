@@ -12,5 +12,6 @@ int main(void) {
         if(event.type == SDL_QUIT) break;
     }
 
+    SDL_hid_exit();
     return 0;
 }
