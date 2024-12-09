@@ -17,6 +17,11 @@ SpriteArray* SpriteArray_new(int size) {
 }
 
 void SpriteArray_push(SpriteArray* array, Sprite value) {
+    if(array->length >= array->maxLength) {
+        fprintf(stderr, "Array exceeded max capacity (%i)", array->maxLength);
+        exit(1);
+    }
+
     array->data[array->length++] = value;
 }
 
