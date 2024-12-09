@@ -21,7 +21,9 @@ void SpriteArray_push(SpriteArray* array, Sprite value) {
 }
 
 void SpriteArray_removeAt(SpriteArray* array, int index) {
-    for(int i = index; i < array->length; i++) {
+    for(int i = index; i < array->length - 1; i++) {
         array->data[i] = array->data[i + 1];
     }
+
+    array->length--;
 }
