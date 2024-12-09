@@ -8,7 +8,7 @@ typedef struct {
     SDL_Texture* texture;
     SDL_Renderer* renderer;
     SDL_Rect rect;
-    int renderCycles;
+    int spawnTime;
 } Sprite;
 
 Sprite Sprite_load(SDL_Renderer* renderer, const char* path);

@@ -18,6 +18,7 @@ Sprite Sprite_load(SDL_Renderer* renderer, const char* path) {
         .texture = texture,
         .renderer = renderer,
         .rect = rect,
+        .spawnTime = SDL_GetTicks()
     };
 
     return s;
