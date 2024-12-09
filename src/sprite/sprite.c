@@ -18,7 +18,6 @@ Sprite Sprite_load(SDL_Renderer* renderer, const char* path) {
         .texture = texture,
         .renderer = renderer,
         .rect = rect,
-        .renderCycles = 0
     };
 
     return s;
@@ -31,5 +30,4 @@ void Sprite_draw(Sprite* sprite) {
     }
 
     SDL_RenderCopy(sprite->renderer, sprite->texture, NULL, &sprite->rect);
-    sprite->renderCycles++;
 }
