@@ -83,6 +83,13 @@ int main(void) {
 
         for(int i = 0; i < projectiles->length; i++) {
             Sprite* proj = &projectiles->data[i];
+
+            if(now > proj->spawnTime + 500) {
+                SpriteArray_removeAt(projectiles, i);
+                i--;
+                continue;
+            }
+
             proj->rect.y -= 2 * delta;
             Sprite_draw(proj);
         }
