@@ -27,7 +27,7 @@ void SpriteArray_push(SpriteArray* array, Sprite value) {
 
 void SpriteArray_removeAt(SpriteArray* array, int index) {
     if(index < 0 || index >= array->length) {
-        fprintf("Index %i out of range \n", index);
+        fprintf(stderr, "Index %i out of range \n", index);
         exit(1);
     }
 
