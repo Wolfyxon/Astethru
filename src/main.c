@@ -50,7 +50,6 @@ int main(void) {
     player.rect.x = WINDOW_SIZE / 2 - player.rect.w / 2;
     player.rect.y = WINDOW_SIZE - player.rect.h - 50;
 
-    float playerX = player.rect.x;
     float lastTime = SDL_GetTicks();
     
     float lastFireTime = 0;
@@ -90,8 +89,7 @@ int main(void) {
             SpriteArray_push(asteroids, createAsteroid(rend));
         }
 
-        playerX = lerp(playerX, mx - player.rect.w / 2, 0.01 * delta);
-        player.rect.x = playerX;
+        player.rect.x = lerp(player.rect.x, mx - player.rect.w / 2, 0.01 * delta);
 
         SDL_RenderClear(rend);
 

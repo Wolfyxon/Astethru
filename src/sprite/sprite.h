@@ -7,7 +7,7 @@
 typedef struct {
     SDL_Texture* texture;
     SDL_Renderer* renderer;
-    SDL_Rect rect;
+    SDL_FRect rect;
     int spawnTime;
 } Sprite;
 

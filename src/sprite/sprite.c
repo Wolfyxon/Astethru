@@ -1,7 +1,7 @@
 #include "sprite.h"
 
 Sprite Sprite_load(SDL_Renderer* renderer, const char* path) {
-    SDL_Rect rect = {
+    SDL_FRect rect = {
         .w = 50,
         .h = 50,
         .x = 0,
@@ -37,5 +37,5 @@ void Sprite_draw(Sprite* sprite) {
         exit(1);
     }
 
-    SDL_RenderCopy(sprite->renderer, sprite->texture, NULL, &sprite->rect);
+    SDL_RenderCopyF(sprite->renderer, sprite->texture, NULL, &sprite->rect);
 }
