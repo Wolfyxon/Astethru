@@ -21,6 +21,12 @@ Sprite createProjectile(SDL_Renderer* renderer, Sprite* player) {
     return proj;
 }
 
+Sprite createAsteroid(SDL_Renderer* renderer) {
+    Sprite ast = Sprite_load(renderer, "assets/img/asteroid1.png");
+
+    return ast;
+}
+
 int main(void) {
     SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -46,7 +52,10 @@ int main(void) {
 
     float playerX = player.rect.x;
     float lastTime = SDL_GetTicks();
+    
     float lastFireTime = 0;
+    float lastAsteroidSpawnTime = 0;
+    float asteroidSpawnCooldown = 800;
 
     while (1) {
         SDL_PollEvent(&event);
@@ -76,6 +85,11 @@ int main(void) {
             }
         }
 
+        if(now > lastAsteroidSpawnTime + asteroidSpawnCooldown) {
+            lastAsteroidSpawnTime = now;
+            SpriteArray_push(asteroids, createAsteroid(rend));
+        }
+
         playerX = lerp(playerX, mx - player.rect.w / 2, 0.01 * delta);
         player.rect.x = playerX;
 
@@ -92,6 +106,19 @@ int main(void) {
 
             proj->rect.y -= 2 * delta;
             Sprite_draw(proj);
+        }
+
+        for(int i = 0; i < asteroids->length; i++) {
+            Sprite* ast = &asteroids->data[i];
+
+            if(ast->rect.y > WINDOW_SIZE) {
+                SpriteArray_removeAt(asteroids, i);
+                i--;
+                continue;
+            }
+
+            ast->rect.y += delta * 0.8;
+            Sprite_draw(ast);
         }
 
         Sprite_draw(&player);
