@@ -23,10 +23,12 @@ Sprite createProjectile(SDL_Renderer* renderer, Sprite* player) {
 
 Sprite createAsteroid(SDL_Renderer* renderer) {
     Sprite ast = Sprite_load(renderer, "assets/img/asteroid1.png");
-    ast.rect.x = WINDOW_SIZE * ((float) rand() / RAND_MAX);
-    
+
     float size = 32 + 128 * ((float) rand() / RAND_MAX);
     
+    ast.rect.x = WINDOW_SIZE * ((float) rand() / RAND_MAX);
+    ast.rect.y = -size;
+
     ast.rect.w = size;
     ast.rect.h = size;
 
