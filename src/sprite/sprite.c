@@ -24,6 +24,13 @@ Sprite Sprite_load(SDL_Renderer* renderer, const char* path) {
     return s;
 }
 
+SDL_Point Sprite_getTextureSize(Sprite* sprite) {
+    SDL_Point size;
+    SDL_QueryTexture(sprite->texture, NULL, NULL, &size.x, &size.y);
+    
+    return size;
+}
+
 void Sprite_draw(Sprite* sprite) {
     if(sprite->renderer == NULL || sprite->texture == NULL) {
         fprintf(stderr, "Invalid sprite \n");

@@ -12,6 +12,8 @@ typedef struct {
 } Sprite;
 
 Sprite Sprite_load(SDL_Renderer* renderer, const char* path);
+
+SDL_Point Sprite_getTextureSize(Sprite* sprite);
 void Sprite_draw(Sprite* sprite);
 
 #endif
