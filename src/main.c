@@ -63,6 +63,7 @@ int main(void) {
     float lastFireTime = 0;
     float lastAsteroidSpawnTime = 0;
     float asteroidSpawnCooldown = 400;
+    float asteroidSpeed = 0.2;
 
     while (1) {
         SDL_PollEvent(&event);
@@ -71,6 +72,8 @@ int main(void) {
         float now = SDL_GetTicks();
         float delta = (now - lastTime);
         lastTime = now;
+
+        asteroidSpeed += delta / 999999;
 
         int mx, my;
         Uint32 mouse = SDL_GetMouseState(&mx, &my);
@@ -123,7 +126,7 @@ int main(void) {
                 continue;
             }
 
-            ast->rect.y += delta * 0.8;
+            ast->rect.y += delta * asteroidSpeed;
             Sprite_draw(ast);
         }
 
