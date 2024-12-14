@@ -53,8 +53,8 @@ int main(void) {
     SpriteArray* asteroids = SpriteArray_new(MAX_ASTEROIDS);
 
     Sprite player = Sprite_load(rend, "assets/img/ship.png");
-    player.rect.w = 80;
-    player.rect.h = 80;
+    player.rect.w = 29 * 3;
+    player.rect.h = 28 * 3;
     player.rect.x = WINDOW_SIZE / 2 - player.rect.w / 2;
     player.rect.y = WINDOW_SIZE - player.rect.h - 50;
 
