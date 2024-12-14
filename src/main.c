@@ -117,7 +117,7 @@ int main(void) {
         for(int i = 0; i < asteroids->length; i++) {
             Sprite* ast = &asteroids->data[i];
 
-            if(ast->rect.y > WINDOW_SIZE) {
+            if(ast->rect.y > WINDOW_SIZE || Sprite_touches(&player, ast)) {
                 SpriteArray_removeAt(asteroids, i);
                 i--;
                 continue;
