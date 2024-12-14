@@ -62,7 +62,7 @@ int main(void) {
     
     float lastFireTime = 0;
     float lastAsteroidSpawnTime = 0;
-    float asteroidSpawnCooldown = 800;
+    float asteroidSpawnCooldown = 400;
 
     while (1) {
         SDL_PollEvent(&event);
